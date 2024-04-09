@@ -3,7 +3,7 @@
 A NodeJs Docker image based on Ubuntu.
 
 - Ubuntu `rolling`
-- NodeJs `v20`
+- NodeJs `v20.12.1`
 - NVM `v0.39.7`
 
 ## Usage
@@ -30,6 +30,6 @@ docker tag sagarpanda/ubuntu-node sagarpanda/ubuntu-node:1.0.0
 
 # push docker image
 # docker login
-docker push push sagarpanda/ubuntu-node
-docker push push sagarpanda/ubuntu-node:1.0.0
+docker push sagarpanda/ubuntu-node
+docker push sagarpanda/ubuntu-node:1.0.0
 ```
