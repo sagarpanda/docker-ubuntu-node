@@ -10,7 +10,8 @@ A NodeJs Docker image based on Ubuntu.
 
 ```sh
 # run container
-docker run sagarpanda/ubuntu-node
+docker run -it sagarpanda/ubuntu-node
+docker run -it --rm sagarpanda/ubuntu-node
 ```
 
 ## Developer Guide
@@ -18,6 +19,9 @@ docker run sagarpanda/ubuntu-node
 ```sh
 # build docker image
 docker build -t sagarpanda/ubuntu-node .
+
+# build docker image with linux/arm64/v8 platform
+docker build -t sagarpanda/ubuntu-node . --platform linux/arm64/v8
 
 # build docker image with no cache
 docker build --no-cache -t sagarpanda/ubuntu-node .
@@ -32,4 +36,23 @@ docker tag sagarpanda/ubuntu-node sagarpanda/ubuntu-node:1.0.0
 # docker login
 docker push sagarpanda/ubuntu-node
 docker push sagarpanda/ubuntu-node:1.0.0
+```
+
+## Multi-platform Docker Images
+
+### Setup Builder
+
+```sh
+# displays the default builtin driver
+docker buildx ls
+
+# create a new builder
+docker buildx create --name mybuilder --bootstrap --use
+
+```
+
+### Build and Publish
+
+```sh
+docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t sagarpanda/ubuntu-node:latest --push .
 ```
