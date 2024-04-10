@@ -23,5 +23,8 @@ RUN echo "source $NVM_DIR/nvm.sh && \
     nvm alias default $NODE_VERSION && \
     nvm use default" | bash
 
+# install yarn
+RUN echo "npm install -g yarn" | bash
+
 # confirm installation
 RUN echo "node -v" | bash
