@@ -54,5 +54,5 @@ docker buildx create --name mybuilder --bootstrap --use
 ### Build and Publish
 
 ```sh
-docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t sagarpanda/ubuntu-node:latest --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t sagarpanda/ubuntu-node:latest --push .
 ```
